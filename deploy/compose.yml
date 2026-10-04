@@ -1,0 +1,90 @@
+name: ecoute-os3
+x-app: &app
+  build:
+    context: ..
+    dockerfile: deploy/Dockerfile.api
+  environment: &runtime-env
+    APP_ENV: ${APP_ENV:-local}
+    SIMULATION: ${SIMULATION:-1}
+    ALLOWED_HOSTS: ${ALLOWED_HOSTS:-localhost,127.0.0.1,api}
+    DJANGO_SECRET: ${DJANGO_SECRET}
+    FIELD_KEY: ${FIELD_KEY}
+    HMAC_KEY: ${HMAC_KEY}
+    SMS_SECRET: ${SMS_SECRET}
+    MESSAGING_SECRET: ${MESSAGING_SECRET}
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    SENSITIVE_PASSWORD: ${SENSITIVE_PASSWORD}
+    DEMO_CREDENTIALS_FILE: /app/demo/credentials.json
+    POSTGRES_HOST: db
+    POSTGRES_DB: feedback
+    POSTGRES_USER: feedback_app
+    SENSITIVE_USER: feedback_sensitive
+  restart: unless-stopped
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: feedback
+      POSTGRES_PASSWORD: ${DB_ADMIN_PASSWORD}
+      APP_PASSWORD: ${POSTGRES_PASSWORD}
+      SENSITIVE_PASSWORD: ${SENSITIVE_PASSWORD}
+      OWNER_PASSWORD: ${OWNER_PASSWORD}
+      SENSITIVE_OWNER_PASSWORD: ${SENSITIVE_OWNER_PASSWORD}
+      REPORT_PASSWORD: ${REPORT_PASSWORD}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/10-roles.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U postgres -d feedback']
+      interval: 3s
+      retries: 20
+    restart: unless-stopped
+  init:
+    <<: *app
+    environment:
+      <<: *runtime-env
+      OWNER_PASSWORD: ${OWNER_PASSWORD}
+      SENSITIVE_OWNER_PASSWORD: ${SENSITIVE_OWNER_PASSWORD}
+    command: [sh, /app/deploy/migrate.sh]
+    depends_on:
+      db: {condition: service_healthy}
+    restart: 'no'
+  api:
+    <<: *app
+    volumes: [demo-data:/app/demo]
+    depends_on:
+      init: {condition: service_completed_successfully}
+  worker:
+    <<: *app
+    command: [python, manage.py, worker]
+    depends_on:
+      init: {condition: service_completed_successfully}
+  proxy:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.proxy
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-http://localhost:8080}
+    ports: ['127.0.0.1:8080:8080']
+    volumes: [caddy-data:/data]
+    depends_on: [api]
+    restart: unless-stopped
+  backup:
+    <<: *app
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile.backup
+    command: [python3, /app/deploy/backup.py, loop]
+    environment:
+      BACKUP_KEY: ${BACKUP_KEY}
+      PGHOST: db
+      PGDATABASE: feedback
+      PGUSER: postgres
+      PGPASSWORD: ${DB_ADMIN_PASSWORD}
+    volumes: [../backups:/app/backups]
+    depends_on:
+      init: {condition: service_completed_successfully}
+volumes:
+  db-data:
+  caddy-data:
+  demo-data:

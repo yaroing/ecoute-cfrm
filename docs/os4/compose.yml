@@ -1,0 +1,81 @@
+name: ecoute-os4
+x-app: &app
+  image: ecoute-os3-api:latest
+  environment: &env
+    APP_ENV: local
+    SIMULATION: '1'
+    ALLOWED_HOSTS: localhost,127.0.0.1,testserver,api
+    DJANGO_SECRET: ${DJANGO_SECRET}
+    FIELD_KEY: ${FIELD_KEY}
+    HMAC_KEY: ${HMAC_KEY}
+    SMS_SECRET: ${SMS_SECRET}
+    MESSAGING_SECRET: ${MESSAGING_SECRET}
+    POSTGRES_HOST: db
+    POSTGRES_DB: feedback
+    POSTGRES_USER: feedback_app
+    POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    SENSITIVE_USER: feedback_sensitive
+    SENSITIVE_PASSWORD: ${SENSITIVE_PASSWORD}
+    PYTHONPATH: /app/backend
+  volumes:
+    - ../../backend:/app/backend
+    - ../../scripts:/app/scripts:ro
+    - ./:/app/os4
+  networks: [isolated]
+services:
+  db:
+    image: postgres:16-alpine
+    cpus: 0.4
+    mem_limit: 768m
+    environment:
+      POSTGRES_DB: feedback
+      POSTGRES_PASSWORD: ${DB_ADMIN_PASSWORD}
+      APP_PASSWORD: ${POSTGRES_PASSWORD}
+      SENSITIVE_PASSWORD: ${SENSITIVE_PASSWORD}
+      OWNER_PASSWORD: ${OWNER_PASSWORD}
+      SENSITIVE_OWNER_PASSWORD: ${SENSITIVE_OWNER_PASSWORD}
+      REPORT_PASSWORD: ${REPORT_PASSWORD}
+    volumes:
+      - os4-db:/var/lib/postgresql/data
+      - ../../deploy/init-db.sh:/docker-entrypoint-initdb.d/10-roles.sh:ro
+    healthcheck:
+      test: [CMD-SHELL, 'pg_isready -U postgres -d feedback']
+      interval: 3s
+      retries: 20
+    networks: [isolated]
+  init:
+    <<: *app
+    environment:
+      <<: *env
+      OWNER_PASSWORD: ${OWNER_PASSWORD}
+      SENSITIVE_OWNER_PASSWORD: ${SENSITIVE_OWNER_PASSWORD}
+    command: [sh, /app/deploy/migrate.sh]
+    depends_on:
+      db: {condition: service_healthy}
+  api:
+    <<: *app
+    cpus: 1.4
+    mem_limit: 2816m
+    command: [gunicorn, 'config.wsgi:application', --bind, '0.0.0.0:8000', --workers, '2', --access-logfile, '-']
+    depends_on:
+      init: {condition: service_completed_successfully}
+  worker:
+    <<: *app
+    cpus: 0.1
+    mem_limit: 256m
+    command: [python, manage.py, worker]
+    depends_on:
+      init: {condition: service_completed_successfully}
+  proxy:
+    image: ecoute-os3-proxy:latest
+    cpus: 0.1
+    mem_limit: 256m
+    environment: {SITE_ADDRESS: 'http://localhost:8080'}
+    ports: ['127.0.0.1:8084:8080']
+    depends_on: [api]
+    networks: [isolated]
+volumes:
+  os4-db:
+networks:
+  isolated:
+    internal: true

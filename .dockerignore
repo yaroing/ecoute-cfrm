@@ -1,0 +1,15 @@
+.venv
+**/node_modules
+**/dist
+**/__pycache__
+**/*.sqlite3
+**/*.log
+**/.env
+.env
+.local-secrets.json
+.demo-credentials.json
+*.docx
+*-extrait.txt
+htmlcov
+.git
+backups

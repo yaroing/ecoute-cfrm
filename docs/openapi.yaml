@@ -1,0 +1,2628 @@
+openapi: 3.0.3
+info:
+  title: CFRM – API de feedback
+  version: 1.0.0
+paths:
+  /api/v1/actions:
+    get:
+      operationId: api_v1_actions_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_actions_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Action'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Action'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Action'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    patch:
+      operationId: api_v1_actions_partial_update
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/actions/{id}:
+    get:
+      operationId: api_v1_actions_retrieve_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_actions_create_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Action'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Action'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Action'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    patch:
+      operationId: api_v1_actions_partial_update_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAction'
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/actions/{id}/restitutions:
+    post:
+      operationId: api_v1_actions_restitutions_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Restitution'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Restitution'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Restitution'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/admin/settings:
+    get:
+      operationId: api_v1_admin_settings_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    patch:
+      operationId: api_v1_admin_settings_partial_update
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/admin/users:
+    get:
+      operationId: api_v1_admin_users_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_admin_users_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    patch:
+      operationId: api_v1_admin_users_partial_update
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/admin/users/{id}:
+    get:
+      operationId: api_v1_admin_users_retrieve_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_admin_users_create_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    patch:
+      operationId: api_v1_admin_users_partial_update_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/agent/sync:
+    post:
+      operationId: api_v1_agent_sync_create
+      description: R1. Lot de 100 retours ordinaires maximum. Résultat individuel
+        par clé, supprimer uniquement les entrées confirmées.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AgentBatch'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AgentBatch'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AgentBatch'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/audit:
+    get:
+      operationId: api_v1_audit_retrieve
+      description: R3, R6. Lecture seule. Contrôle du chaînage SHA-256 ; événements
+        sensibles exclus de la liste ordinaire.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/auth/login:
+    post:
+      operationId: api_v1_auth_login_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/auth/logout:
+    post:
+      operationId: api_v1_auth_logout_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/auth/refresh:
+    post:
+      operationId: api_v1_auth_refresh_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Refresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Refresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Refresh'
+        required: true
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/config:
+    get:
+      operationId: api_v1_config_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers:
+    get:
+      operationId: api_v1_dossiers_retrieve
+      description: 'R1 : collecte récente ; R2 : dossiers attribués ; R3 : ordinaires.
+        Pagination par curseur signé.'
+      parameters:
+      - in: query
+        name: cursor
+        schema:
+          type: string
+      - in: query
+        name: late
+        schema:
+          type: string
+      - in: query
+        name: owner
+        schema:
+          type: string
+      - in: query
+        name: project
+        schema:
+          type: string
+      - in: query
+        name: q
+        schema:
+          type: string
+      - in: query
+        name: state
+        schema:
+          type: string
+      - in: query
+        name: theme
+        schema:
+          type: string
+      - in: query
+        name: zone
+        schema:
+          type: string
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}:
+    get:
+      operationId: api_v1_dossiers_retrieve_2
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/contact:
+    get:
+      operationId: api_v1_dossiers_contact_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/fusion:
+    post:
+      operationId: api_v1_dossiers_fusion_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/notes:
+    post:
+      operationId: api_v1_dossiers_notes_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Note'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Note'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Note'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/qualification:
+    patch:
+      operationId: api_v1_dossiers_qualification_partial_update
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedQualification'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedQualification'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedQualification'
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/referencements:
+    post:
+      operationId: api_v1_dossiers_referencements_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/reponses:
+    post:
+      operationId: api_v1_dossiers_reponses_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplyDraft'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReplyDraft'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReplyDraft'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/reponses/{rid}/comprehension:
+    post:
+      operationId: api_v1_dossiers_reponses_comprehension_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: rid
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/reponses/{rid}/transmission-manuelle:
+    post:
+      operationId: api_v1_dossiers_reponses_transmission_manuelle_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: rid
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/reponses/{rid}/validation:
+    post:
+      operationId: api_v1_dossiers_reponses_validation_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: rid
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReplyValidation'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ReplyValidation'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ReplyValidation'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/dossiers/{id}/transitions:
+    post:
+      operationId: api_v1_dossiers_transitions_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transition'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Transition'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Transition'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/exports:
+    post:
+      operationId: api_v1_exports_create
+      description: R3, R5. CSV ou XLSX sans contenu libre ni contacts, avec protection
+        contre les formules. Export journalisé.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/health:
+    get:
+      operationId: api_v1_health_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/indicateurs:
+    get:
+      operationId: api_v1_indicateurs_retrieve
+      description: R3, R5. Indicateurs agrégés I01 à I10. Aucune ligne sensible ni
+        contact.
+      parameters:
+      - in: query
+        name: from
+        schema:
+          type: string
+      - in: query
+        name: project
+        schema:
+          type: string
+      - in: query
+        name: to
+        schema:
+          type: string
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/notifications:
+    get:
+      operationId: api_v1_notifications_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/public/retours:
+    post:
+      operationId: api_v1_public_retours_create
+      description: Public, limité à 20 requêtes/minute/IP. Clé Idempotency-Key ou
+        key. Texte sensible immédiatement chiffré et cloisonné.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Input'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Input'
+        required: true
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/sensible:
+    get:
+      operationId: api_v1_sensible_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/sensible/{id}:
+    get:
+      operationId: api_v1_sensible_retrieve_2
+      description: R4 avec TOTP uniquement. Toute lecture est journalisée. Refus 404
+        pour les autres rôles.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_sensible_create
+      description: R4 avec TOTP uniquement. Toute lecture est journalisée. Refus 404
+        pour les autres rôles.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Transition'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Transition'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Transition'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /api/v1/simulator:
+    get:
+      operationId: api_v1_simulator_retrieve
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+    post:
+      operationId: api_v1_simulator_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Input'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Input'
+        required: true
+      security:
+      - BearerToken: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /webhooks/{channel}/simule:
+    post:
+      operationId: webhooks_simule_create
+      description: Simulation uniquement. HMAC-SHA256(secret, timestamp + point +
+        corps brut), horodatage valide 5 minutes.
+      parameters:
+      - in: header
+        name: X-Signature
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: X-Timestamp
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: channel
+        schema:
+          type: string
+        required: true
+      tags:
+      - webhooks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Input'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Input'
+        required: true
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+  /webhooks/statuts/{channel}:
+    post:
+      operationId: webhooks_statuts_create
+      description: Permissions vérifiées côté serveur. Voir docs/API.md.
+      parameters:
+      - in: header
+        name: X-Signature
+        schema:
+          type: string
+        required: true
+      - in: header
+        name: X-Timestamp
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: channel
+        schema:
+          type: string
+        required: true
+      tags:
+      - webhooks
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              additionalProperties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - BearerToken: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '403':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+          description: ''
+components:
+  schemas:
+    Action:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        project:
+          type: string
+          maxLength: 80
+        owner:
+          type: integer
+        owner_name:
+          type: string
+          readOnly: true
+        due:
+          type: string
+          format: date
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          default: PLANIFIEE
+        proof:
+          type: string
+        dossiers:
+          type: array
+          items:
+            type: string
+            format: uuid
+        restitutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restitution'
+          readOnly: true
+      required:
+      - due
+      - id
+      - owner
+      - owner_name
+      - project
+      - restitutions
+      - title
+    AgentBatch:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Input'
+      required:
+      - items
+    Input:
+      type: object
+      properties:
+        text:
+          type: string
+          maxLength: 8000
+        address:
+          type: string
+          maxLength: 120
+        consent:
+          type: boolean
+          default: false
+        type:
+          allOf:
+          - $ref: '#/components/schemas/TypeEnum'
+          default: PLAINTE
+        zone:
+          type: string
+          default: Non précisée
+          maxLength: 80
+        project:
+          type: string
+          default: Assistance communautaire
+          maxLength: 80
+        language:
+          type: string
+          default: fr
+          maxLength: 10
+        sensitive:
+          type: boolean
+          default: false
+        key:
+          type: string
+          maxLength: 120
+      required:
+      - text
+    Login:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+        otp:
+          type: string
+      required:
+      - password
+      - username
+    Note:
+      type: object
+      properties:
+        text:
+          type: string
+        attempt:
+          type: boolean
+      required:
+      - text
+    PatchedAction:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        project:
+          type: string
+          maxLength: 80
+        owner:
+          type: integer
+        owner_name:
+          type: string
+          readOnly: true
+        due:
+          type: string
+          format: date
+        status:
+          allOf:
+          - $ref: '#/components/schemas/StatusEnum'
+          default: PLANIFIEE
+        proof:
+          type: string
+        dossiers:
+          type: array
+          items:
+            type: string
+            format: uuid
+        restitutions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Restitution'
+          readOnly: true
+    PatchedQualification:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        theme:
+          type: string
+          maxLength: 80
+        urgency:
+          $ref: '#/components/schemas/UrgencyEnum'
+        zone:
+          type: string
+          maxLength: 80
+        project:
+          type: string
+          maxLength: 80
+        sensitive:
+          type: boolean
+          default: false
+    Refresh:
+      type: object
+      properties:
+        refresh:
+          type: string
+      required:
+      - refresh
+    ReplyDraft:
+      type: object
+      properties:
+        text:
+          type: string
+      required:
+      - text
+    ReplyValidation:
+      type: object
+      properties:
+        accepted:
+          type: boolean
+        reason:
+          type: string
+      required:
+      - accepted
+    Restitution:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        date:
+          type: string
+          format: date
+        channel:
+          type: string
+          maxLength: 40
+        zone:
+          type: string
+          maxLength: 80
+        message:
+          type: string
+      required:
+      - channel
+      - date
+      - id
+      - message
+      - zone
+    StatusEnum:
+      enum:
+      - PLANIFIEE
+      - EN_COURS
+      - REALISEE
+      type: string
+      description: |-
+        * `PLANIFIEE` - PLANIFIEE
+        * `EN_COURS` - EN_COURS
+        * `REALISEE` - REALISEE
+    Transition:
+      type: object
+      properties:
+        state:
+          type: string
+          maxLength: 30
+        reason:
+          type: string
+          maxLength: 500
+        owner:
+          type: integer
+        recipient:
+          type: string
+          maxLength: 200
+        receipt:
+          type: string
+          maxLength: 500
+      required:
+      - state
+    TypeEnum:
+      enum:
+      - QUESTION
+      - PLAINTE
+      - SUGGESTION
+      - SATISFACTION
+      type: string
+      description: |-
+        * `QUESTION` - QUESTION
+        * `PLAINTE` - PLAINTE
+        * `SUGGESTION` - SUGGESTION
+        * `SATISFACTION` - SATISFACTION
+    UrgencyEnum:
+      enum:
+      - NORMALE
+      - URGENTE
+      type: string
+      description: |-
+        * `NORMALE` - NORMALE
+        * `URGENTE` - URGENTE
+  securitySchemes:
+    BearerToken:
+      type: http
+      scheme: bearer
+      description: Jeton court obtenu par /auth/login ; renouvellement rotatif.

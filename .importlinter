@@ -1,0 +1,35 @@
+[importlinter]
+root_packages =
+    core
+    adapters
+    api
+
+[importlinter:contract:hexagon]
+name = Le noyau ignore les adaptateurs et les vues
+type = forbidden
+source_modules =
+    core.reception
+    core.dossiers
+    core.attribution
+    core.reponses
+    core.sensible
+    core.pilotage
+    core.audit
+    core.events
+    core.administration
+forbidden_modules =
+    adapters
+    api
+
+[importlinter:contract:confidential]
+name = Seul le service sensible importe le stockage cloisonne
+type = forbidden
+source_modules =
+    api
+    adapters
+    core.reception
+    core.dossiers
+    core.pilotage
+forbidden_modules =
+    core.sensible.models
+allow_indirect_imports = True

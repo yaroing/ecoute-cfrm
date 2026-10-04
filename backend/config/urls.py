@@ -1,0 +1,43 @@
+from django.urls import path
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from api import views as v
+from api import schema  # noqa: F401
+
+urlpatterns = [
+    path("api/v1/dossiers/<uuid:pk>/contact", v.contact_detail),
+    path("api/v1/dossiers/<uuid:pk>/reponses/<int:rid>/transmission-manuelle", v.manual_delivery),
+    path("api/v1/health", v.health),
+    path("api/v1/schema", SpectacularAPIView.as_view(), name="schema"),
+    path("api/v1/docs", SpectacularSwaggerView.as_view(url_name="schema")),
+    path("api/v1/auth/login", v.login),
+    path("api/v1/auth/refresh", v.refresh),
+    path("api/v1/auth/logout", v.logout),
+    path("api/v1/config", v.configuration),
+    path("api/v1/public/retours", v.public_return),
+    path("api/v1/agent/sync", v.agent_sync),
+    path("webhooks/<str:channel>/simule", v.webhook),
+    path("webhooks/statuts/<str:channel>", v.delivery),
+    path("api/v1/simulator", v.simulator),
+    path("api/v1/dossiers", v.dossiers),
+    path("api/v1/dossiers/<uuid:pk>", v.detail),
+    path("api/v1/dossiers/<uuid:pk>/qualification", v.qualification),
+    path("api/v1/dossiers/<uuid:pk>/transitions", v.transitions),
+    path("api/v1/dossiers/<uuid:pk>/notes", v.notes),
+    path("api/v1/dossiers/<uuid:pk>/referencements", v.referrals),
+    path("api/v1/dossiers/<uuid:pk>/reponses", v.replies),
+    path("api/v1/dossiers/<uuid:pk>/reponses/<int:rid>/validation", v.validation),
+    path("api/v1/dossiers/<uuid:pk>/reponses/<int:rid>/comprehension", v.understanding),
+    path("api/v1/dossiers/<uuid:pk>/fusion", v.fusion),
+    path("api/v1/actions", v.actions),
+    path("api/v1/actions/<int:pk>", v.actions),
+    path("api/v1/actions/<int:pk>/restitutions", v.restitution),
+    path("api/v1/sensible", v.sensitive_list),
+    path("api/v1/sensible/<uuid:pk>", v.sensitive_detail),
+    path("api/v1/indicateurs", v.dashboard),
+    path("api/v1/exports", v.export),
+    path("api/v1/admin/settings", v.admin_settings),
+    path("api/v1/admin/users", v.users),
+    path("api/v1/admin/users/<int:pk>", v.users),
+    path("api/v1/audit", v.audit),
+    path("api/v1/notifications", v.notifications),
+]
